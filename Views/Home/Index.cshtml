@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+@model Zendesk_v2_Demo.ViewModels.CreateTicketViewModel
+           
+@if(!string.IsNullOrEmpty(Model.TicketId))
+{
+    <div id="success-0" class="success">Ticket #@Model.TicketId was created at <a href="@Model.ZendeskUrl">@Model.ZendeskUrl</a></div>
+}
+
+<h3>Demo Create ticket with requester</h3>
+@using (Html.BeginForm("Create", "Home", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+        <div class="control-group">
+          <label class="control-label" for="Subject">Subject</label>
+          <div class="controls">
+            @Html.TextBoxFor(x => x.Subject)
+          </div>
+        </div>        
+        <div class="control-group">
+          <label class="control-label" for="RequesterEmail">Requester's Email</label>
+          <div class="controls">
+            @Html.TextBoxFor(x => x.RequesterEmail)
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="TicketPriority">Ticket Priority</label>
+          <div class="controls">
+            <select name="TicketPriority">
+                <option value="urgent">Urgent</option>
+                <option value="high">High</option>            
+                <option value="normal" selected="selected">Normal</option>
+                <option value="low">Low</option>
+            </select>
+          </div>
+        </div>        
+        <div class="control-group">
+          <label class="control-label" for="Description">Description</label>
+          <div class="controls">
+            @Html.TextAreaFor(x => x.Description)
+          </div>
+        </div>   
+        <div class="control-group">          
+          <div class="controls">
+            <input type="submit" class="btn btn-primary" /> 
+          </div>
+        </div>                            
+}
+
+
+<div class="bs-docs-example">
+    <pre>C# server code:</pre>
+</div>
+<pre class="prettyprint linenums" style="margin-bottom: 9px;">
+//set up the api
+var api = new ZendeskApi(string.Format("{0}api/v2", zendesk), "eric.neifert@gmail.com", "pa55word");
+
+//create the user if they don't already exist
+var user = api.Users.SearchByEmail(model.RequesterEmail);
+if (user == null || user.Users.Count < 1)
+    api.Users.CreateUser(new User()
+                             {
+                                 Name = model.RequesterEmail,
+                                 Email = model.RequesterEmail
+                             });
+
+//setup the ticket
+var ticket = new Ticket()
+{
+    Subject = model.Subject,
+    Description = model.Description,
+    Priority = model.TicketPriority,
+    Requester = new Requester() { Email = model.RequesterEmail }
+};
+
+//create the new ticket
+var res = api.Tickets.CreateTicket(ticket).Ticket;  
+</pre>
+
+       
