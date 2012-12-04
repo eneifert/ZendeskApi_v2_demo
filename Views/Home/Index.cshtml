@@ -53,7 +53,7 @@
 </div>
 <pre class="prettyprint linenums" style="margin-bottom: 9px;">
 //set up the api
-var api = new ZendeskApi(string.Format("{0}api/v2", zendesk), "eric.neifert@gmail.com", "pa55word");
+var api = new ZendeskApi("https://YOURSITE.zendesk.com/api/v2", "USER", "PASSWORD");
 
 //create the user if they don't already exist
 var user = api.Users.SearchByEmail(model.RequesterEmail);

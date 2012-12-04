@@ -1,7 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zendesk_v2_Demo", "Zendesk_v2_Demo\Zendesk_v2_Demo.csproj", "{8526298F-C172-485C-837D-A42135DAD743}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zendesk_v2_Demo", "Zendesk_v2_Demo.csproj", "{8526298F-C172-485C-837D-A42135DAD743}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C1E101A5-434A-4CD6-88AD-319DF7BEA535}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

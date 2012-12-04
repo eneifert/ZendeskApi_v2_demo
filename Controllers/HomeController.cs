@@ -22,9 +22,9 @@ namespace Zendesk_v2_Demo.Controllers
 
         public ActionResult Create(CreateTicketViewModel model)
         {
-            var zendesk = "https://csharpapi.zendesk.com/";
+            var zendesk = "https://eswebtech.zendesk.com/";
             //set up the api
-            var api = new ZendeskApi(string.Format("{0}api/v2", zendesk), "eric.neifert@gmail.com", "pa55word");
+            var api = new ZendeskApi(string.Format("{0}api/v2", zendesk), "alexandra.pak@gmail.com", "pa55word");
 
             //create the user if they don't already exist
             var user = api.Users.SearchByEmail(model.RequesterEmail);
