@@ -73,8 +73,7 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="ZendeskApi_v2, Version=2.2.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\ZendeskApi_v2.2.3.2\lib\net40\ZendeskApi_v2.dll</HintPath>
+      <HintPath>packages\ZendeskApi_v2.2.3.3\lib\net40\ZendeskApi_v2.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

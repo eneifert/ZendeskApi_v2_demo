@@ -2,13 +2,13 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>ZendeskApi_v2</id>
-    <version>2.3.2</version>
+    <version>2.3.3</version>
     <title>ZendeskApi_v2</title>
     <authors>Eric</authors>
     <owners>Eric</owners>
     <projectUrl>https://github.com/eneifert/ZendeskApi_v2</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>A full c# wrapper for Zendesk's api v2</description>
+    <description>A full c# wrapper for Zendesk's api v2.</description>
     <copyright>Copyright 2012</copyright>
     <tags>zendesk api</tags>
     <dependencies>
@@ -22,7 +22,7 @@
       <group targetFramework=".NETFramework4.5">
         <dependency id="Newtonsoft.Json" />
       </group>
-      <group targetFramework=".NETPortable0.0-net45+sl40+wp75+win80">
+      <group targetFramework=".NETPortable0.0-net45+sl40+wp71+win80">
         <dependency id="Newtonsoft.Json" />
         <dependency id="Microsoft.Bcl.Async" />
       </group>

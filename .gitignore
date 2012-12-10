@@ -63,8 +63,7 @@ local.properties
 .builds
 *.dotCover
 
-## TODO: If you have NuGet Package Restore enabled, uncomment this
-#packages/
+
 
 # Visual C++ cache files
 ipch/
@@ -133,7 +132,6 @@ Desktop.ini
 
 *.py[co]
 
-# Packages
 *.egg
 *.egg-info
 dist
