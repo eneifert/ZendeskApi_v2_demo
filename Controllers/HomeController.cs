@@ -18,7 +18,12 @@ namespace Zendesk_v2_Demo.Controllers
     {       
         public ActionResult Index()
         {
-            return View(new CreateTicketViewModel());
+            return View(new CreateTicketViewModel()
+                            {
+                                Subject = "Help",
+                                RequesterEmail = "test@test.com",
+                                Description = "I need to know what time it is!"
+                            });
         }
 
         public ActionResult Create(CreateTicketViewModel model)
