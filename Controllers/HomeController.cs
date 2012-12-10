@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -22,9 +23,14 @@ namespace Zendesk_v2_Demo.Controllers
 
         public ActionResult Create(CreateTicketViewModel model)
         {
-            var zendesk = "https://eswebtech.zendesk.com/";
+
+            var zendesk = ConfigurationManager.AppSettings["ZendeskUrl"];
+            var zendeskUser = ConfigurationManager.AppSettings["ZendeskUser"];
+            var zendeskPassword = ConfigurationManager.AppSettings["ZendeskPassword"];
+
+
             //set up the api
-            var api = new ZendeskApi(string.Format("{0}api/v2", zendesk), "alexandra.pak@gmail.com", "pa55word");
+            var api = new ZendeskApi(zendesk, zendeskUser, zendeskPassword);
 
             //create the user if they don't already exist
             var user = api.Users.SearchByEmail(model.RequesterEmail);
